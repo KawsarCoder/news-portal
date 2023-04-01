@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 import NewsItems from "../NewsItems/NewsItems";
+import PropTypes from "prop-types";
 
 export class News extends Component {
+  static defaultProps = {
+    country: "us",
+    pageSize: 20,
+    category: "general",
+  };
+
+  static propTypes = {
+    country: PropTypes.string,
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
+  };
+
   constructor() {
     super();
     this.state = {
@@ -12,7 +25,7 @@ export class News extends Component {
   }
   // fetch all news data
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=87e145ee21b44cde98aec3b98deebcc1&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=87e145ee21b44cde98aec3b98deebcc1&page=1&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -23,7 +36,11 @@ export class News extends Component {
   }
 
   handlePrevClick = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=87e145ee21b44cde98aec3b98deebcc1&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${
+      this.props.country
+    }&category=${
+      this.props.category
+    }&apiKey=87e145ee21b44cde98aec3b98deebcc1&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
@@ -41,7 +58,11 @@ export class News extends Component {
       Math.ceil(this.state.totalResults / this.props.pageSize)
     ) {
     } else {
-      let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=87e145ee21b44cde98aec3b98deebcc1&page=${
+      let url = `https://newsapi.org/v2/top-headlines?country=${
+        this.props.country
+      }&category=${
+        this.props.category
+      }&apiKey=87e145ee21b44cde98aec3b98deebcc1&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       let data = await fetch(url);
@@ -62,29 +83,29 @@ export class News extends Component {
         {/* loading spinner start */}
         {this.state.articles.length < 1 ? (
           <div className="d-flex justify-content-center mt-5">
-            <div class="spinner-grow text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-secondary" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-secondary" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-success" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-danger" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-danger" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-warning" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-warning" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-info" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-info" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-dark" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-dark" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-            <div class="spinner-grow text-light" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-grow text-light" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         ) : (

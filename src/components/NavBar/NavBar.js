@@ -8,7 +8,11 @@ export class NavBar extends Component {
         <nav className="navbar navbar-expand-lg bg-primary">
           <div className="container-fluid">
             <a className="navbar-brand text-white fw-bold" href="/">
-              News <span className="bg-white text-primary px-2 py-1 rounded"> Portal </span>
+              News{" "}
+              <span className="bg-white text-primary px-2 py-1 rounded">
+                {" "}
+                Portal{" "}
+              </span>
             </a>
             <button
               className="navbar-toggler"
@@ -48,25 +52,43 @@ export class NavBar extends Component {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Dropdown
+                    Categories
                   </a>
                   <ul className="dropdown-menu">
                     <li>
                       <a className="dropdown-item" href="/">
-                        Action
+                        business
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="/">
-                        Another action
+                        entertainment
+                      </a>
+                    </li>
+
+                    <li>
+                      <a className="dropdown-item" href="/">
+                        general
                       </a>
                     </li>
                     <li>
-                      <hr className="dropdown-divider" />
+                      <a className="dropdown-item" href="/">
+                        health
+                      </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="/">
-                        Something else here
+                        science
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/">
+                        sports
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/">
+                        technology
                       </a>
                     </li>
                   </ul>
