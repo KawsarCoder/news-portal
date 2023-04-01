@@ -4,12 +4,11 @@ import PropTypes from "prop-types";
 export class NavBar extends Component {
   render() {
     return (
-        <div>
-            87e145ee21b44cde98aec3b98deebcc1
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div>
+        <nav className="navbar navbar-expand-lg bg-primary">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              News Portal
+            <a className="navbar-brand text-white fw-bold" href="/">
+              News <span className="bg-white text-primary px-2 py-1 rounded"> Portal </span>
             </a>
             <button
               className="navbar-toggler"
@@ -28,18 +27,22 @@ export class NavBar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
+                  <a
+                    className="nav-link active text-white"
+                    aria-current="page"
+                    href="/"
+                  >
                     Home
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/">
+                  <a className="nav-link text-white" href="/">
                     Link
                   </a>
                 </li>
                 <li className="nav-item dropdown">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle text-white"
                     href="/"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -69,7 +72,7 @@ export class NavBar extends Component {
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link disabled">Disabled</a>
+                  <a className="nav-link disabled  text-white">Disabled</a>
                 </li>
               </ul>
               {/* <form className="d-flex" role="search">
