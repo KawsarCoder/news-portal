@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export class NavBar extends Component {
   render() {
     return (
-      <div>
+      <div style={{ position: "sticky", top: "0", zIndex: "10" }}>
         <nav className="navbar navbar-expand-lg bg-primary">
-          <div className="container-fluid">
+          <div className="container-fluid ">
             <a className="navbar-brand text-white fw-bold" href="/">
               News{" "}
               <span className="bg-white text-primary px-2 py-1 rounded">
