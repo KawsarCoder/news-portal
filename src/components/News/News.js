@@ -117,20 +117,13 @@ export class News extends Component {
             return (
               <div className="col-md-4" key={el.url}>
                 <NewsItems
-                  title={
-                    el.title ? el.title.slice(0, 30) : "not mention author name"
-                  }
-                  description={
-                    el.description
-                      ? el.description.slice(0, 90)
-                      : "Business refers to an enterprising entity or organization that carries out professional activities."
-                  }
+                  title={el.title}
+                  description={el.description}
                   newsUrl={el.url}
-                  imgUrl={
-                    el.urlToImage
-                      ? el.urlToImage
-                      : "https://www.incimages.com/uploaded_files/image/1920x1080/getty_180152187_970679970450042_64007.jpg"
-                  }
+                  author={el.author}
+                  date={el.publishedAt}
+                  imgUrl={el.urlToImage}
+                  source={el.source.name}
                 />
               </div>
             );
@@ -147,7 +140,7 @@ export class News extends Component {
           </button>
 
           <button
-            disabled={this.state.page > 4}
+            disabled={this.state.page + 1 > 3}
             type="button"
             className="btn btn-primary"
             onClick={this.handleNextClick}
